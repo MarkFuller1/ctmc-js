@@ -1,6 +1,6 @@
 import React from "react";
 import SimpleTable from "./SimpleTable";
-import * as Requests from './../Requests'
+import * as Requests from '../API/Requests'
 import Combobox from './Combobox'
 
 export default function Main(props) {

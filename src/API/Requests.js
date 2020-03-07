@@ -1,11 +1,11 @@
 import axios from "axios";
-var constants = require("./Constants");
+import {globalState} from '../states/state'
 
 export async function getAllBatters() {
   return await axios({
     methos: "get",
-    url: constants.backend_url + "/getAllPlayers/",
-    headers: constants.request_headers
+    url: globalState.backendURL + "/getAllPlayers",
+    headers: globalState.requestHeaders
   })
     .then(function(r) {
       console.log(r);
@@ -20,9 +20,9 @@ export async function getAllBatters() {
 export async function getAllColsFromBattingForPlayer(p) {
   return await axios({
     methos: "get",
-    url: constants.backend_url + "/getAllColsFromBattingForPlayer/",
+    url: globalState.backendURL + "/getAllColsFromBattingForPlayer",
     data: p,
-    headers: constants.request_headers
+    headers: globalState.requestHeaders
   })
     .then(function(r) {
       console.log(r);
