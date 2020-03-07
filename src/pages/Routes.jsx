@@ -9,7 +9,8 @@ const Routes = observer(class Routes extends React.Component{
     render(){
         return(
             <Switch>
-                <Route path="/" exact render = {() => <Homepage/>} />{ /* Finally, catch all unmatched routes */ }
+                <Route path="/" exact render = {() => <Homepage/>} />
+                { /* Finally, catch all unmatched routes */ }
                 <Route render = {() => <Redirect to = "/"/>} />
             </Switch>
         )
