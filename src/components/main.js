@@ -1,7 +1,6 @@
 import React from "react";
-import SimpleTable from "./SimpleTable";
-import * as Requests from '../API/Requests'
-import Combobox from './Combobox'
+import * as Requests from '../API/Requests';
+import { PRIMARY } from "../index";
 
 export default function Main(props) {
     console.log("getting batters")
@@ -12,9 +11,7 @@ export default function Main(props) {
     
   return (
     <div>
-      "Hello"
-      <Combobox names={batterNames} onChange={setPlayer}/>
-      <SimpleTable rows={batterRows} />
+      
     </div>
   );
 }
