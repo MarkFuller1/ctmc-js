@@ -33,3 +33,7 @@ export async function getAllColsFromBattingForPlayer(p) {
       return e;
     });
 }
+
+export function getPlayerImage(p){
+  return "https://www.baylor.edu/content/imglib/3/3/7/7/337781.jpg"
+}
