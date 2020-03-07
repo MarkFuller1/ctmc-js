@@ -17,10 +17,10 @@ export async function getAllBatters() {
     });
 }
 
-export async function getAllColsFromBattingForPlayer(p) {
+export async function getGeneralData(p) {
   return await axios({
     methos: "get",
-    url: globalState.backendURL + "/getAllColsFromBattingForPlayer",
+    url: globalState.backendURL + "/" + p + "/generalData",
     data: p,
     headers: globalState.requestHeaders
   })
