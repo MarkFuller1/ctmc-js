@@ -1,19 +1,25 @@
 import React from "react";
 import * as Request from "./../API/Requests";
 
-export default function PlayerStatsTable(props) {
-  var playerData = Request.getGeneralData(props.tableData);
-  console.log(playerData);
+function renderTableHeader(data) {
+    var headers =  data.map( (col) => <th>{col}</th>);
+    return <div>{headers}</div>
+}
+
+function renderTableData(data) {
+    var data = data.map((col) => <td>{col}</td>)
+    return data;
+}
+
+export default async function PlayerStatsTable(props) {
+  var playerData = await Request.getGeneralData(props.tableData);
+  console.log("playerdata => " +  playerData.generalData);
   return (
     <div>
-      <table style={{width:"100%"}}>
+      <table id="players">
         <tbody>
-          <tr >
-            <td >
-            </td>
-            <td>
-            </td>
-          </tr>
+          <tr>{renderTableHeader(playerData.getGeneralData)}</tr>
+          {renderTableData(playerData.getGeneralData)}
         </tbody>
       </table>
     </div>
