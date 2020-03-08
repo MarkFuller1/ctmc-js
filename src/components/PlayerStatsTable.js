@@ -7,8 +7,8 @@ function renderTableHeader(data) {
 }
 
 function renderTableData(data) {
-    var data = data.map((col) => <td>{col}</td>)
-    return data;
+    var res = data.map((col) => <td>{col}</td>)
+    return res;
 }
 
 export default async function PlayerStatsTable(props) {

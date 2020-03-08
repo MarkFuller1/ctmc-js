@@ -1,7 +1,7 @@
 import React from 'react';
 import Homepage from './pages/Homepage';
 import { observer } from '../node_modules/mobx-react/dist';
-import { globalState, setAuthentication} from './states/state';
+//import { globalState, setAuthentication} from './states/state';
 import Routes from './pages/Routes';
 
 const App = observer(class App extends React.Component{
