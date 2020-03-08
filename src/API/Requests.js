@@ -7,9 +7,9 @@ export async function getAllBatters() {
     url: globalState.backendURL + "/getAllPlayers",
     headers: globalState.requestHeaders
   })
-    .then(function(r) {
-      console.log(r);
-      return r;
+    .then(r => {
+      console.log(r.data);
+      return r.data;
     })
     .catch(function(e) {
       console.log(e);
@@ -24,9 +24,9 @@ export async function getGeneralData(p) {
     data: p,
     headers: globalState.requestHeaders
   })
-    .then(function(r) {
-      console.log(r);
-      return r;
+    .then(r => {
+      console.log(r.data);
+      return r.data;
     })
     .catch(function(e) {
       console.log(e);
