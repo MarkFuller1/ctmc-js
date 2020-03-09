@@ -11,7 +11,6 @@ function RenderTableHead(props) {
       <TableCell>""</TableCell>
     );
   } else {
-    console.log("IN HEAD: "  + props.cols);
     const colNames = props.cols;
 
     const elements = colNames.map((colName) =>
@@ -40,7 +39,8 @@ function RenderTableBody(props) {
 
     for (let i = 0; i < props.rows.length; i++){
       console.log(r[i]);
-      const elements = r[i].map((data) =>
+      const row = Object.values(props.rows[i]);
+      const elements = row.map((data) =>
       <TableCell key={data}>{data}</TableCell>
     );
       arry.push(

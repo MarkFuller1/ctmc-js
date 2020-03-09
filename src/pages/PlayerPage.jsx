@@ -56,8 +56,7 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
         <h1>{this.props.match.params.playerid}</h1>
         <div>
   
-          <ExpansionPanel style={{overflowX: "scroll"}}>
-  
+          <ExpansionPanel style={{overflowX: "scroll "}}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content" id="panel1a-header">
               <Typography>
@@ -77,9 +76,10 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
 
   async componentDidMount() {
     const response = await getGeneralData(this.props.match.params.playerid);
+    console.log(Object.keys(response));
     //ADD CALL TO GET IMAGE URL
     this.setState({imageURL: "https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTE5NTU2MzE2MzYzNjU0NjY3/babe-ruth-9468009-2-402.jpg"})
-    this.setState({ tableData: response['generalData'], tableCols: response['colnames']});
+    this.setState({ tableData: response, tableCols: Object.keys(response[0])});
 
     console.log(this.state);
   }
