@@ -1,11 +1,11 @@
 import React from "react";
-// import * as Requests from '../API/Requests';
-// import { PRIMARY } from "../index";
+import { Typography } from "@material-ui/core";
+import PlayerPage from './../pages/PlayerPage'
 
 export default function Main(props) {
   return (
     <div>
-      
+      <PlayerPage/>
     </div>
   );
 }

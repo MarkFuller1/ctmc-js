@@ -34,6 +34,22 @@ export async function getGeneralData(p) {
     });
 }
 
+export async function getBirthdayBoys(p) {
+  return await axios({
+    methos: "get",
+    url: globalState.backendURL + "/getBirthdayBoys",
+    headers: globalState.requestHeaders
+  })
+    .then(r => {
+      console.log(r.data);
+      return r.data;
+    })
+    .catch(function(e) {
+      console.log(e);
+      return e;
+    });
+}
+
 export function getPlayerImage(p){
   return "https://www.baylor.edu/content/imglib/3/3/7/7/337781.jpg"
 }

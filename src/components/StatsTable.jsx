@@ -59,7 +59,7 @@ function RenderTableBody(props) {
 }
 
 const StatsTable = observer(class StatsTable extends React.Component {
-
+  
   constructor (props){
     super();
     this.state= {
@@ -93,4 +93,19 @@ const StatsTable = observer(class StatsTable extends React.Component {
   
 });
 
-export default StatsTable;
+export default function CreateTable(props){
+  console.log("in create table: " + props.cols);
+  if (props.cols.length !== 'undefined' && props.cols.length > 0){
+    return (
+      <StatsTable rows={props.rows} cols={props.cols}/>
+    );
+  } else {
+    return (
+      <div>
+      </div>
+    );
+  }
+}
+
+
+//export default StatsTable;

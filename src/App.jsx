@@ -9,7 +9,6 @@ const App = observer(class App extends React.Component{
     return(
       //!globalState.userState.isAuthenticating &&
       <div className="App">
-        <Homepage />
         <Routes />
       </div>
     )

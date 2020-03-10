@@ -16,6 +16,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import MainContent from './MainContent';
 
 const drawerWidth = 240;
 
@@ -51,7 +52,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function MiniDrawer(props) {
+function ResponsiveDrawer(props) {
   const { container } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -135,12 +136,20 @@ function MiniDrawer(props) {
           </Drawer>
         </Hidden>
       </nav>
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        <MainContent/>
+      </main>
     </div>
   );
 }
 
-MiniDrawer.propTypes = {
+ResponsiveDrawer.propTypes = {
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
   container: PropTypes.any,
 };
 
-export default MiniDrawer;
+export default ResponsiveDrawer;
