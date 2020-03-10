@@ -5,13 +5,17 @@ if(!window.location.href.includes("localhost") && !window.location.href.includes
 }
 
 let backendURL = "";
+let frontendURL = "";
 if(window.location.hostname === "localhost"){
     backendURL = "http://localhost:5000";
+    frontendURL = "http://localhost:3000";
 }
 else{
     //we aren't running locally
     backendURL = "https://ctmc-py.herokuapp.com/";
+    frontendURL = "https://ctmc-js.herokuapp.com/";
 }
+
 
 const request_headers = {
     "Access-Control-Allow-Origin": "*",
@@ -30,6 +34,7 @@ const userState = {
 
 export const globalState = {
     backendURL: backendURL,
+    frontendURL: frontendURL,
     requestHeaders: request_headers,
     userState: userState,
     drawerWidth: drawerWidth

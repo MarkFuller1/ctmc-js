@@ -103,6 +103,3 @@ export default function CreateTable(props){
     );
   }
 }
-
-
-//export default StatsTable;
