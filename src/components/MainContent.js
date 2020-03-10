@@ -1,8 +1,7 @@
-import { makeStyles, useTheme } from "@material-ui/core/styles";
 import * as Requests from "./../API/Requests";
 import CreateTable from "../components/StatsTable";
 import Typography from "@material-ui/core/Typography";
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 export default function MainContent(props) {
 
