@@ -85,9 +85,7 @@ const StatsTable = observer(class StatsTable extends React.Component {
     console.log("MOUNTED STATS TABLE");
     console.log(this.props);
 
-    this.state.cols = this.props.cols;
-    this.state.rows = this.props.rows;
-    this.setState({cols: this.state.cols, rows: this.state.rows});
+    this.setState({cols: this.props.cols, rows: this.props.rows});
     console.log(this.state);
   }
   
