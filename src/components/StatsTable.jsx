@@ -1,50 +1,96 @@
 import React from "react";
-import {getGeneralData} from "../API/Requests";
-import {Table, TableBody, TableCell, TableHead, TableRow} from '@material-ui/core';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import { observer } from 'mobx-react';
 
-/*async function getColumns(cols){
-  /*let colRows;
-  console.log("IN GETCOLS : " + cols);
+function RenderTableHead(props) {
+  
+  console.disableRedBox = true;
+  console.log(props.cols);
+  if (props.cols.length <= 0) {
+    return (
+      <TableCell>""</TableCell>
+    );
+  } else {
+    const colNames = props.cols;
 
-  if(cols === null){
-    return null;
+    const elements = colNames.map((colName) =>
+      <TableCell key={colName}>{colName}</TableCell>
+    );
+    
+    return (
+      <TableRow>
+          {elements}
+      </TableRow>
+    )
   }
+}
 
-  for (let i = 0; i < cols.colnames.length; i++){
-    console.log("IN GETCOLS : " + cols.colnames[i]);
-      colRows.push(
-        <TableCell>{cols.colnames[i]}</TableCell>
+function RenderTableBody(props) {
+  console.disableRedBox = true;
+  console.log(props.rows);
+  if (props.rows.length <= 0) {
+    return (
+      <TableCell>""</TableCell>
+    );
+  } else {
+    const r = props.rows;
+    console.log(r);
+    let arry = [];
+
+    for (let i = 0; i < props.rows.length; i++){
+      console.log(r[i]);
+      const row = Object.values(props.rows[i]);
+      const elements = row.map((data) =>
+      <TableCell key={data}>{data}</TableCell>
+    );
+      arry.push(
+        <TableRow>
+          {elements}
+        </TableRow>
       )
+    }
+    
+    return (
+      <TableBody>
+        {arry}
+      </TableBody>
+    )
   }
-  return colRows;
-  console.log(cols.colnames[0]);
-  return cols.colnames[0];
-}*/
+}
 
-const StatsTable = observer(class StatsTable extends React.Component{
-  Tabledata;
+const StatsTable = observer(class StatsTable extends React.Component {
 
-  render(){
+  constructor (props){
+    super();
+    this.state= {
+      cols: [],
+      rows: []
+    }
+  }
+
+  render() {
     return (
       <div>
         <h1></h1>
-        <Table>
+        <Table style={{width: '100%'}}>
           <TableHead>
-            <TableRow>
-              
-            </TableRow>
+            <RenderTableHead cols={this.state.cols} />
           </TableHead>
+          <RenderTableBody rows={this.state.rows} />
         </Table>
-      </div> 
+      </div>
     )
   }
-  async componentDidMount(){
-    const response = await getGeneralData(this.props.queryIndex);
-    this.Tabledata = response;
+  componentDidMount(){
+    console.log("MOUNTED STATS TABLE");
+    console.log(this.props);
 
-    console.log(this.Tabledata);
+    this.state.cols = this.props.cols;
+    this.state.rows = this.props.rows;
+    this.setState({cols: this.state.cols, rows: this.state.rows});
+    console.log(this.state);
   }
+  
 });
 
 export default StatsTable;

@@ -1,24 +1,11 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+// import * as Requests from '../API/Requests';
+// import { PRIMARY } from "../index";
 
 export default function Main(props) {
   return (
     <div>
-      <h1>asdf</h1>
-      <h1>asdf</h1>
-      <h1>asdf</h1>
-      <h1>asdf</h1>
-      <h1>asdf</h1>
-      <h1>asdf</h1>
-      <h1>asdf</h1>
-      <h1>asdf</h1>
-      <h1>asdf</h1>
-      <h1>asdf</h1>
-      <h1>asdf</h1>
-      <h1>asdf</h1>
-      <h1>asdf</h1>
-      <h1>asdf</h1>
-      <h1>asdf</h1>
+      
     </div>
   );
 }
