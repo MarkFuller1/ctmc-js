@@ -23,14 +23,14 @@ const ResponsiveDrawer = observer(class ResponsiveDrawer extends React.Component
 
   handleDrawerClose = () => {
     //this.state.open = false;
-    this.setState({ open: false }); 
+    this.setState({ open: false });
   };
 
   render() {
 
     return (
       <div>
-        <IconButton onClick={this.handleDrawerOpen} edge="start">\
+        <IconButton style={{marginLeft: "2vw"}} onClick={this.handleDrawerOpen}>\
           <MenuIcon />
         </IconButton>
 
