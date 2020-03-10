@@ -43,9 +43,10 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
   constructor (props){
     super();
     this.state={
-      tableData: [],
-      tableCols: [],
-      imageURL: ""
+      name: "",
+      generalData: [],
+      generalCols: [],
+      imageURL: "",
     }
   }
 
@@ -53,7 +54,7 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
     return (
       <center>
         <img src={this.state.imageURL} alt="img" />
-        <h1>{this.props.match.params.playerid}</h1>
+        <Typography variant="h3">{this.state.name}</Typography>
         <div>
   
           <ExpansionPanel style={{overflowX: "scroll "}}>
@@ -65,7 +66,7 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
             </ExpansionPanelSummary>
   
             <ExpansionPanelDetails>
-              <CreateTable rows={this.state.tableData} cols={this.state.tableCols} />
+              <CreateTable rows={this.state.generalData} cols={this.state.generalCols} />
             </ExpansionPanelDetails>
   
           </ExpansionPanel>
@@ -75,11 +76,12 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
   }
 
   async componentDidMount() {
-    const response = await getGeneralData(this.props.match.params.playerid);
-    console.log(Object.keys(response));
+    const genResponse = await getGeneralData(this.props.match.params.playerid);
     //ADD CALL TO GET IMAGE URL
     this.setState({imageURL: "https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTE5NTU2MzE2MzYzNjU0NjY3/babe-ruth-9468009-2-402.jpg"})
-    this.setState({ tableData: response, tableCols: Object.keys(response[0])});
+    this.setState({ generalData: genResponse, generalCols: Object.keys(genResponse[0])});
+    console.log(genResponse);
+    this.setState({name: genResponse[0].nameFirst + " " + genResponse[0].nameLast});
 
     console.log(this.state);
   }
