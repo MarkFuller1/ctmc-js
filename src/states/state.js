@@ -1,7 +1,7 @@
 import { decorate, observable } from "../../node_modules/mobx/lib/mobx"
 
 if(!window.location.href.includes("localhost") && !window.location.href.includes("https") && window.location.href.includes("http")){
-    window.open("https://wtt-is-my-food.herokuapp.com","_self")
+    window.open("https://ctmc-js.herokuapp.com","_self")
 }
 
 let backendURL = "";
