@@ -1,7 +1,5 @@
 import React from "react";
-import * as Request from "./../API/Requests";
-import StatsTable from "../components/StatsTable";
-import { makeStyles } from "@material-ui/core/styles";
+import CreateTable from "../components/StatsTable";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
@@ -12,29 +10,16 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { getGeneralData } from "../API/Requests";
 
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: "100%"
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular
-  }
-}));
+// const useStyles = makeStyles(theme => ({
+//   root: {
+//     width: "100%"
+//   },
+//   heading: {
+//     fontSize: theme.typography.pxToRem(15),
+//     fontWeight: theme.typography.fontWeightRegular
+//   }
+// }));
 
-function CreateTable(props){
-  console.log("in create table: " + props.cols);
-  if (props.cols.length !== 'undefined' && props.cols.length > 0){
-    return (
-      <StatsTable rows={props.rows} cols={props.cols}/>
-    );
-  } else {
-    return (
-      <div>
-      </div>
-    );
-  }
-}
 
 const PlayerPage = observer(class PlayerPage extends React.Component {
   //classes = useStyles();

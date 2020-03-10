@@ -59,7 +59,7 @@ function RenderTableBody(props) {
 }
 
 const StatsTable = observer(class StatsTable extends React.Component {
-
+  
   constructor (props){
     super();
     this.state= {
@@ -71,7 +71,6 @@ const StatsTable = observer(class StatsTable extends React.Component {
   render() {
     return (
       <div>
-        <h1></h1>
         <Table style={{width: '100%'}}>
           <TableHead>
             <RenderTableHead cols={this.state.cols} />
@@ -85,12 +84,25 @@ const StatsTable = observer(class StatsTable extends React.Component {
     console.log("MOUNTED STATS TABLE");
     console.log(this.props);
 
-    this.state.cols = this.props.cols;
-    this.state.rows = this.props.rows;
-    this.setState({cols: this.state.cols, rows: this.state.rows});
+    this.setState({cols: this.props.cols, rows: this.props.rows});
     console.log(this.state);
   }
   
 });
 
-export default StatsTable;
+export default function CreateTable(props){
+  console.log("in create table: " + props.cols);
+  if (props.cols.length !== 'undefined' && props.cols.length > 0){
+    return (
+      <StatsTable rows={props.rows} cols={props.cols}/>
+    );
+  } else {
+    return (
+      <div>
+      </div>
+    );
+  }
+}
+
+
+//export default StatsTable;
