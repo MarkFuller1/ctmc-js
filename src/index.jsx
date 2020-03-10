@@ -5,7 +5,7 @@ import App from './App.jsx';
 import { ThemeProvider } from '@material-ui/styles';
 import {createMuiTheme} from '@material-ui/core';
 
-export const PRIMARY = "#363333";   //defines primary color white
+export const PRIMARY = "#363333";   
 export const SECONDARY = "#272121"; 
 
 const theme = createMuiTheme({
@@ -24,11 +24,10 @@ const theme = createMuiTheme({
 });
 
 
-
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter >
         <ThemeProvider theme={theme}>
-            <App />
+            <App/>
         </ThemeProvider>
     </BrowserRouter>
     , document.getElementById('root'));

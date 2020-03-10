@@ -19,7 +19,7 @@ const request_headers = {
     Accept: "application/json"
   };
 
-  const drawerWidth = 240;
+const drawerWidth = 240;
 
 const userState = {
     signedUp: false,

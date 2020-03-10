@@ -71,7 +71,7 @@ const StatsTable = observer(class StatsTable extends React.Component {
   render() {
     return (
       <div>
-        <Table style={{width: '100%'}}>
+        <Table>
           <TableHead>
             <RenderTableHead cols={this.state.cols} />
           </TableHead>
@@ -92,7 +92,7 @@ const StatsTable = observer(class StatsTable extends React.Component {
 
 export default function CreateTable(props){
   console.log("in create table: " + props.cols);
-  if (props.cols.length !== 'undefined' && props.cols.length > 0){
+  if (props.cols !== undefined && props.cols.length > 0){
     return (
       <StatsTable rows={props.rows} cols={props.cols}/>
     );

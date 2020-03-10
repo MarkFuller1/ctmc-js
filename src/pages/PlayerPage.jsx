@@ -8,6 +8,7 @@ import { observer } from '../../node_modules/mobx-react/dist';
 import { withRouter } from 'react-router-dom';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { getGeneralData } from "../API/Requests";
+import ResponsiveDrawer from '../components/Drawer'; 
 
 
 // const useStyles = makeStyles(theme => ({
@@ -38,11 +39,12 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
   render(){
     return (
       <center>
+        <ResponsiveDrawer />
         <img src={this.state.imageURL} alt="img" />
         <Typography variant="h3">{this.state.name}</Typography>
         <div>
   
-          <ExpansionPanel style={{overflowX: "scroll "}}>
+          <ExpansionPanel style={{overflowX: "scroll", width: "70%"}}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content" id="panel1a-header">
               <Typography>
