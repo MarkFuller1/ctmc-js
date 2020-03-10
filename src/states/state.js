@@ -19,6 +19,8 @@ const request_headers = {
     Accept: "application/json"
   };
 
+  const drawerWidth = 240;
+
 const userState = {
     signedUp: false,
     loggedIn: false,
@@ -29,7 +31,8 @@ const userState = {
 export const globalState = {
     backendURL: backendURL,
     requestHeaders: request_headers,
-    userState: userState
+    userState: userState,
+    drawerWidth: drawerWidth
 }
 
 decorate(userState, {
