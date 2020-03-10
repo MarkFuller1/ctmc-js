@@ -71,7 +71,6 @@ const StatsTable = observer(class StatsTable extends React.Component {
   render() {
     return (
       <div>
-        <h1></h1>
         <Table style={{width: '100%'}}>
           <TableHead>
             <RenderTableHead cols={this.state.cols} />
