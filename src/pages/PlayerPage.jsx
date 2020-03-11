@@ -51,11 +51,9 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
                 Player Stats Table
               </Typography>
             </ExpansionPanelSummary>
-  
             <ExpansionPanelDetails>
               <CreateTable rows={this.state.generalData} cols={this.state.generalCols} />
             </ExpansionPanelDetails>
-  
           </ExpansionPanel>
         </div>
       </center>
@@ -64,14 +62,11 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
 
   async componentDidMount() {
     const genResponse = await Request.getGeneralData(this.props.match.params.playerid);
-    const imageURLResponse = await Request.getPlayerImage(this.props.match.playerid);
-    //ADD CALL TO GET IMAGE URL
-    this.setState({imageURL: imageURLResponse.url})
+    const imageURLResponse = await Request.getPlayerImage(this.props.match.params.playerid);
+    this.setState({imageURL: imageURLResponse[0].url})
     this.setState({ generalData: genResponse, generalCols: Object.keys(genResponse[0])});
     console.log(genResponse);
     this.setState({name: genResponse[0].nameFirst + " " + genResponse[0].nameLast});
-
-    console.log(this.state);
   }
 })
 

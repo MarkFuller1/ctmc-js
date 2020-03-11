@@ -73,7 +73,7 @@ export async function getPlayerImage(p){
     headers: globalState.requestHeaders
   })
     .then(r => {
-      //console.log(r.data);
+      console.log(r.data[0].url);
       return r.data;
     })
     .catch(function(e) {
