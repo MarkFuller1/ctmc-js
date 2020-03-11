@@ -1,7 +1,6 @@
 import * as Requests from "../API/Requests";
-import CreateTable from "./StatsTable";
 import CreateLinkedTable from './StatsTableWithLinks';
-import React, { useEffect } from 'react';
+import React from 'react';
 import logo from '../resources/data-analytics.png';
 import { observer } from 'mobx-react';
 import { Paper, Typography, Grid, InputBase } from "@material-ui/core";
@@ -59,7 +58,7 @@ const MainContent = observer(class MainContent extends React.Component {
       <div>
         <Grid container direction="column" justify="center" alignItems="center" spacing={7}>
           <Grid item>
-            <img src={logo} style={{ width: '15vw', height: '15vh' }} />
+            <img alt="mainimg" src={logo} style={{ width: '15vw', height: '15vh' }} />
           </Grid>
           <Grid item>
             <div className={classes.search}>

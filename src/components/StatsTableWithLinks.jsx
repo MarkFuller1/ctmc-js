@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, TableBody, TableCell, TableHead, TableRow, Button } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import { observer } from 'mobx-react';
 import { globalState } from '../states/state';
 
@@ -33,7 +33,7 @@ function RenderTableBody(props) {
             <TableCell>""</TableCell>
         );
     } else {
-        const r = props.rows;
+        //const r = props.rows;
         let arry = [];
 
         for (let i = 0; i < props.rows.length; i++) {

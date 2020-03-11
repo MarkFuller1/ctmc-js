@@ -1,9 +1,7 @@
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Drawer, IconButton } from '@material-ui/core/';
 import MenuIcon from '@material-ui/icons/Menu';
-import { globalState } from '../states/state';
 import { observer } from '../../node_modules/mobx-react/dist';
 
 const ResponsiveDrawer = observer(class ResponsiveDrawer extends React.Component {
@@ -16,9 +14,8 @@ const ResponsiveDrawer = observer(class ResponsiveDrawer extends React.Component
   }
 
   handleDrawerOpen = () => {
-    this.state.open = true;
+    this.setState({open: true});
     this.setState({ open: this.state.open });
-    console.log(this.state);
   };
 
   handleDrawerClose = () => {
