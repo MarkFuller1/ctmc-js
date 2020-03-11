@@ -50,6 +50,34 @@ export async function getBirthdayBoys(p) {
     });
 }
 
-export function getPlayerImage(p){
-  return "https://www.baylor.edu/content/imglib/3/3/7/7/337781.jpg"
+export async function getAllPeopleNamesAndIds(){
+  return await axios({
+    methos: "get",
+    url: globalState.backendURL + "/getAllPeopleNamesAndIds",
+    headers: globalState.requestHeaders
+  })
+    .then(r => {
+      //console.log(r.data);
+      return r.data;
+    })
+    .catch(function(e) {
+      console.log(e);
+      return e;
+    });
+}
+
+export async function getPlayerImage(p){
+  return await axios({
+    methos: "get",
+    url: globalState.backendURL + "/" + p +"/getPlayerUrl",
+    headers: globalState.requestHeaders
+  })
+    .then(r => {
+      //console.log(r.data);
+      return r.data;
+    })
+    .catch(function(e) {
+      console.log(e);
+      return e;
+    });
 }

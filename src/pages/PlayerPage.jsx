@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import { observer } from '../../node_modules/mobx-react/dist';
 import { withRouter } from 'react-router-dom';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { getGeneralData } from "../API/Requests";
+import * as Request from "../API/Requests";
 import ResponsiveDrawer from '../components/Drawer'; 
 
 
@@ -63,9 +63,10 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
   }
 
   async componentDidMount() {
-    const genResponse = await getGeneralData(this.props.match.params.playerid);
+    const genResponse = await Request.getGeneralData(this.props.match.params.playerid);
+    const imageURLResponse = await Request.getPlayerImage(this.props.match.playerid);
     //ADD CALL TO GET IMAGE URL
-    this.setState({imageURL: "https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTE5NTU2MzE2MzYzNjU0NjY3/babe-ruth-9468009-2-402.jpg"})
+    this.setState({imageURL: imageURLResponse.url})
     this.setState({ generalData: genResponse, generalCols: Object.keys(genResponse[0])});
     console.log(genResponse);
     this.setState({name: genResponse[0].nameFirst + " " + genResponse[0].nameLast});
