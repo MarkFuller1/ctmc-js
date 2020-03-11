@@ -1,13 +1,18 @@
 import React from 'react';
 import { observer } from '../node_modules/mobx-react/dist';
-//import { globalState, setAuthentication} from './states/state';
 import Routes from './pages/Routes';
+import P5Wrapper from "./sketch/p5-wrapper";
+import sketch from "./sketch/sketch"
 
 const App = observer(class App extends React.Component{
   render(){
     return(
       <div>
-        <Routes />
+        <P5Wrapper sketch={sketch}>
+        <div style={{ position: "relative" }}>
+          <Routes />
+        </div>
+        </P5Wrapper>
       </div>
     )
   }
