@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, TableBody, TableCell, TableHead, TableRow, Button } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableHead, TableRow, Tooltip } from '@material-ui/core';
 import { observer } from 'mobx-react';
 import { globalState } from '../states/state';
 
@@ -45,17 +45,18 @@ function RenderTableBody(props) {
             arr = Object.values(arr);
 
             const elements = arr.map((data) =>
-                <TableCell key={data} style={{cursor:'pointer'}} onClick={() =>
+                <TableCell key={data} style={{ cursor: 'pointer', }} onClick={() =>
                     window.open(globalState.frontendURL + "/player/" + playerLinks, "_blank")}>{data}</TableCell>
             );
 
             arry.push(
-                <TableRow>
-                    {elements}
-                </TableRow>
+                <Tooltip title="Go To">
+                    <TableRow>
+                        {elements}
+                    </TableRow>
+                </Tooltip>
             )
         }
-
         return (
             <TableBody>
                 {arry}

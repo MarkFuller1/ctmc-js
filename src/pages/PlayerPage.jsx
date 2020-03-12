@@ -44,7 +44,7 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
         <Typography variant="h3">{this.state.name}</Typography>
         <div>
   
-          <ExpansionPanel style={{overflowX: "scroll", width: "70%"}}>
+          <ExpansionPanel style={{overflowX: "scroll", width: "75%"}}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content" id="panel1a-header">
               <Typography>

@@ -30,6 +30,7 @@ const userState = {
     loggedIn: false,
     isAuthenticating: true,
     email: "",
+    userName: "",
 }
 
 export const globalState = {

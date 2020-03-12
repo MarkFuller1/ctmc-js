@@ -67,13 +67,14 @@ const MainContent = observer(class MainContent extends React.Component {
               classes={{input: classes.inputInput, root: classes.inputRoot}} />
             </div>
           </Grid>
-          <Grid>
+          <Grid style={{marginTop: "5vh"}}>
             <Paper style={{ width: "20vw", height: "30vh", overflow: "hidden", overflowY: "scroll" }}>
               <Typography>Players with their birthday today!</Typography>
               <CreateLinkedTable rows={this.state.tableRows} cols={this.state.tableCols} />
             </Paper>
-          </Grid>
 
+            
+          </Grid>
         </Grid>
 
 
