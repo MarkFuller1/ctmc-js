@@ -33,7 +33,7 @@ function RenderTableBody(props) {
             <TableCell>""</TableCell>
         );
     } else {
-        const r = props.rows;
+        //const r = props.rows;
         let arry = [];
 
         for (let i = 0; i < props.rows.length; i++) {

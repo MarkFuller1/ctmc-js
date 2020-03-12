@@ -17,9 +17,8 @@ const ResponsiveDrawer = observer(class ResponsiveDrawer extends React.Component
   }
 
   handleDrawerOpen = () => {
-    this.state.open = true;
+    this.setState({open: true});
     this.setState({ open: this.state.open });
-    console.log(this.state);
   };
 
   handleDrawerClose = () => {

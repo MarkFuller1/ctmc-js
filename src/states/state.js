@@ -1,7 +1,7 @@
 import { decorate, observable } from "../../node_modules/mobx/lib/mobx"
 
 if(!window.location.href.includes("localhost") && !window.location.href.includes("https") && window.location.href.includes("http")){
-    window.open("https://ctmc-py.herokuapp.com/","_self")
+    window.open("https://ctmc-py.herokuapp.com","_self")
 }
 
 let backendURL = "";
@@ -12,8 +12,8 @@ if(window.location.hostname === "localhost"){
 }
 else{
     //we aren't running locally
-    backendURL = "https://ctmc-py.herokuapp.com/";
-    frontendURL = "https://ctmc-js.herokuapp.com/";
+    backendURL = "https://ctmc-py.herokuapp.com";
+    frontendURL = "https://ctmc-js.herokuapp.com";
 }
 
 
