@@ -96,3 +96,19 @@ export async function getPlayerSalaries(p){
     return e;
   });
 }
+
+export async function getPlayerTeams(p){
+  console.log("/" + p + "/getPlayerTeams");
+  return await axios({
+    methos: "get",
+    url: globalState.backendURL + "/" + p +"/getPlayerTeams"
+  })
+  .then( r => {
+    console.log(r.data);
+    return r.data;
+  })
+  .catch(function(e) {
+    console.log(e);
+    return e;
+  });
+}

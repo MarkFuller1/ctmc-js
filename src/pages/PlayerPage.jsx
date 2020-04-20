@@ -125,9 +125,7 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
     const imageURLResponse = await Request.getPlayerImage(this.props.match.params.playerid);
 
     this.setState({ imageURL: imageURLResponse[0].url });
-    console.log(imageURLResponse);
     this.setState({ generalData: genResponse, generalCols: Object.keys(genResponse[0]) });
-    console.log(genResponse);
     this.setState({ name: genResponse[0].nameFirst + " " + genResponse[0].nameLast });
   }
 })
