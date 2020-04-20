@@ -46,7 +46,7 @@ function RenderTableBody(props) {
 
             const elements = arr.map((data) =>
                 <TableCell key={data} style={{ cursor: 'pointer', }} onClick={() =>
-                    window.open(globalState.frontendURL + "/player/" + playerLinks, "_blank")}>{data}</TableCell>
+                    window.open(globalState.frontendURL + "/player/" + playerLinks, "_self")}>{data}</TableCell>
             );
 
             arry.push(

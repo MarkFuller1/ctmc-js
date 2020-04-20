@@ -5,7 +5,6 @@ import { observer } from 'mobx-react';
 function RenderTableHead(props) {
   
   console.disableRedBox = true;
-  console.log(props.cols);
   if (props.cols.length <= 0) {
     return (
       <TableCell>""</TableCell>
@@ -27,7 +26,6 @@ function RenderTableHead(props) {
 
 function RenderTableBody(props) {
   console.disableRedBox = true;
-  console.log(props.rows);
   if (props.rows.length <= 0) {
     return (
       <TableCell>""</TableCell>

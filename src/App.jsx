@@ -6,7 +6,7 @@ import Routes from './pages/Routes';
 const App = observer(class App extends React.Component{
   render(){
     return(
-      <div>
+      <div style={{width: "98vw", height: "98vh"}}>
         <Routes />
       </div>
     )

@@ -81,3 +81,18 @@ export async function getPlayerImage(p){
       return e;
     });
 }
+
+export async function getPlayerSalaries(p){
+  return await axios({
+    methos: "get",
+    url: globalState.backendURL + "/" + p +"/getPlayerSalaries+Avg"
+  })
+  .then( r => {
+    console.log("SALARIES : " + r.data);
+    return r.data;
+  })
+  .catch(function(e) {
+    console.log(e);
+    return e;
+  });
+}
