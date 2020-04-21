@@ -11,6 +11,7 @@ import {
   Button,
   ListItem,
   List,
+  Box,
 } from "@material-ui/core";
 import { fade, withStyles } from "@material-ui/core/styles";
 import { PRIMARY } from "..";
@@ -147,16 +148,16 @@ const MainContent = observer(
                 <List component="nav" classes={{ padding: 0 }}>
                   {this.state.searchResults.map((x) => {
                     return (
-                        <ListItem
-                          button
-                          onClick={() => {
-                            this.onSearchResultClick(x);
-                          }}
-                          key={x.v}
-                          value={x}
-                        >
-                          {x.v}
-                        </ListItem>
+                      <ListItem
+                        button
+                        onClick={() => {
+                          this.onSearchResultClick(x);
+                        }}
+                        key={x.v}
+                        value={x}
+                      >
+                        {x.v}
+                      </ListItem>
                     );
                   })}
                 </List>
@@ -171,7 +172,13 @@ const MainContent = observer(
                   overflowY: "scroll",
                 }}
               >
-                <Typography>Players with their birthday today!</Typography>
+                <center>
+                  <Typography textAlign="center">
+                    <Box fontWeight="fontWeightBold" m={1}>
+                      Players with their birthday today!
+                    </Box>
+                  </Typography>
+                </center>
                 <CreateLinkedTable
                   rows={this.state.tableRows}
                   cols={this.state.tableCols}

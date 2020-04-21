@@ -1,6 +1,5 @@
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Drawer, IconButton, Grid, Typography } from '@material-ui/core/';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircleSharpIcon from '@material-ui/icons/AccountCircleSharp';
@@ -17,8 +16,7 @@ const ResponsiveDrawer = observer(class ResponsiveDrawer extends React.Component
   }
 
   handleDrawerOpen = () => {
-    this.state.open = true;
-    this.setState({ open: this.state.open });
+    this.setState({ open: true });
   };
 
   handleDrawerClose = () => {

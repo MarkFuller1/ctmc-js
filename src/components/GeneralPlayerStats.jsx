@@ -1,11 +1,10 @@
 
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core/';
-import { globalState } from '../states/state';
+import { Grid } from '@material-ui/core/';
 import { getPlayerSalaries, getPlayerTeams } from '../API/Requests';
 import { observer } from '../../node_modules/mobx-react/dist';
 import {
-    LineChart, Line, XAxis, YAxis, Label, Tooltip, Legend, CartesianGrid, ResponsiveContainer, Text,
+    LineChart, Line, XAxis, YAxis, Tooltip, Legend, CartesianGrid, Text,
     Pie, PieChart, Cell
 } from 'recharts';
 

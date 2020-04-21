@@ -13,7 +13,7 @@ function RenderTableHead(props) {
     const colNames = props.cols;
 
     const elements = colNames.map((colName) =>
-      <TableCell key={colName}>{colName}</TableCell>
+      <TableCell key={colName}>{colName.charAt(0).toUpperCase() + colName.slice(1)}</TableCell>
     );
     
     return (
