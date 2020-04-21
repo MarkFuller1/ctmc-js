@@ -14,7 +14,6 @@ import {
 } from "@material-ui/core";
 import { fade, withStyles } from "@material-ui/core/styles";
 import { PRIMARY } from "..";
-import ReactSearchBox from "react-search-box";
 import { globalState } from "../states/state";
 
 const styles = (theme) => ({
@@ -102,10 +101,10 @@ const MainContent = observer(
 
       if (value.type === "p") {
         window.open(globalState.frontendURL + "/player/" + value.key);
-      }else if(value.type === 't'){
-        window.open(globalState.frontendURL + '/team/' + value.key)
-      }else if(value.type === 'f'){
-        window.open(globalState.frontendURL + '/field/' + value.key);
+      } else if (value.type === "t") {
+        window.open(globalState.frontendURL + "/team/" + value.key);
+      } else if (value.type === "f") {
+        window.open(globalState.frontendURL + "/field/" + value.key);
       }
     };
 
@@ -145,22 +144,22 @@ const MainContent = observer(
                 </Button>
               </div>
               <div>
-                {this.state.searchResults.map((x) => {
-                  return (
-                    <List component="nav" classes={{padding: 0}}>
-                      <ListItem
-                        button
-                        onClick={() => {
-                          this.onSearchResultClick(x);
-                        }}
-                        key={x.v}
-                        value={x}
-                      >
-                        {x.v}
-                      </ListItem>
-                    </List>
-                  );
-                })}
+                <List component="nav" classes={{ padding: 0 }}>
+                  {this.state.searchResults.map((x) => {
+                    return (
+                        <ListItem
+                          button
+                          onClick={() => {
+                            this.onSearchResultClick(x);
+                          }}
+                          key={x.v}
+                          value={x}
+                        >
+                          {x.v}
+                        </ListItem>
+                    );
+                  })}
+                </List>
               </div>
             </Grid>
             <Grid>
