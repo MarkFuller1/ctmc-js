@@ -81,3 +81,20 @@ export async function getPlayerImage(p){
       return e;
     });
 }
+
+export  function search(p){
+  console.log("sending " + p)
+  return  axios({
+    methos: "get",
+    url: globalState.backendURL + "/search/" + p ,
+    headers: globalState.requestHeaders
+  })
+    .then(r => {
+      console.log(r.data);
+      return r.data;
+    })
+    .catch(function(e) {
+      console.log(e);
+      return e;
+    });
+}
