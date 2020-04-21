@@ -10,7 +10,7 @@ import GraphicEqSharpIcon from '@material-ui/icons/GraphicEqSharp';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import * as Request from "../API/Requests";
 import ResponsiveDrawer from '../components/Drawer';
-import { IconButton, Tabs, Tab, Grid, Box } from "@material-ui/core";
+import { IconButton, Tabs, Tab, Grid, Box, Chip } from "@material-ui/core";
 import GeneralPlayerStats from '../components/GeneralPlayerStats';
 
 function TabPanel(props) {
@@ -47,6 +47,32 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
       generalCols: [],
       imageURL: "",
       value: 0,
+      badges: []
+    }
+  }
+
+  renderBadges = () => {
+    console.log("BADGE: " + this.state.badges)
+    if (this.state.badges === []) {
+      return (
+        <div />
+      )
+    }
+    else {
+      let bdArr = [];
+      if (this.state.badges.length){
+        if (this.state.badges[0]["inducted"] === 'Y') {
+          bdArr.push(
+            <Chip label="HOF" style={{ backgroundColor: "gold" }} />
+          )
+        }
+        for (let i = 0; i < this.state.badges.length; i++){
+          bdArr.push(
+            <Chip label={this.state.badges[i]["awardID"]}/>
+          )
+        }
+      }
+      return bdArr;
     }
   }
 
@@ -62,15 +88,11 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
         </IconButton>
         <ResponsiveDrawer />
         <Grid container direction="column" justify="center" alignItems="center" style={{ left: "0", width: "auto" }}>
-
           <Grid item>
             <img src={this.state.imageURL} alt="img" />
           </Grid>
           <Grid item>
-            <Typography variant="h3">{this.state.name}</Typography>
-          </Grid>
-          <Grid item>
-            <Typography>Place Badges here</Typography>
+            {this.renderBadges()}
           </Grid>
           <div style={{ width: "80vw" }}>
             <Grid style={{ marginTop: "3vh" }}>
@@ -99,7 +121,7 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
 
             <TabPanel value={this.state.value} index={0}>
               Place stats concerning overall wins, teams, parks, play time, salary
-              <GeneralPlayerStats playerID={this.props.match.params.playerid}/>
+              <GeneralPlayerStats playerID={this.props.match.params.playerid} />
             </TabPanel>
 
             <TabPanel value={this.state.value} index={1}>
@@ -123,10 +145,12 @@ const PlayerPage = observer(class PlayerPage extends React.Component {
   async componentDidMount() {
     const genResponse = await Request.getGeneralData(this.props.match.params.playerid);
     const imageURLResponse = await Request.getPlayerImage(this.props.match.params.playerid);
+    const badgeResponse = await Request.getPlayerBadges(this.props.match.params.playerid);
 
     this.setState({ imageURL: imageURLResponse[0].url });
     this.setState({ generalData: genResponse, generalCols: Object.keys(genResponse[0]) });
     this.setState({ name: genResponse[0].nameFirst + " " + genResponse[0].nameLast });
+    this.setState({ badges: badgeResponse });
   }
 })
 

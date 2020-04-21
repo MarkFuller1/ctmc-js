@@ -112,3 +112,19 @@ export async function getPlayerTeams(p){
     return e;
   });
 }
+
+export async function getPlayerBadges(p){
+  console.log("/" + p + "/getPlayerTeams");
+  return await axios({
+    methos: "get",
+    url: globalState.backendURL + "/" + p +"/getBadges"
+  })
+  .then( r => {
+    console.log(r.data);
+    return r.data;
+  })
+  .catch(function(e) {
+    console.log(e);
+    return e;
+  });
+}

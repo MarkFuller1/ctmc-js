@@ -9,6 +9,7 @@ import {
     Pie, PieChart, Cell
 } from 'recharts';
 
+
 const GeneralPlayerStats = observer(class GeneralPlayerStats extends React.Component {
 
     constructor(props) {
@@ -50,13 +51,16 @@ const GeneralPlayerStats = observer(class GeneralPlayerStats extends React.Compo
                                 <Tooltip />
                                 <Legend />
                                 <Pie data={this.state.teamData} dataKey="Years" nameKey="Team" cx="50%" cy="50%"
-                                    outerRadius={50} label >
+                                    outerRadius={50} label>
                                     {
                                         this.state.teamData.map((entry, index) => <Cell key={`cell-${index}`} fill={this.COLORS[index % this.COLORS.length]} />)
                                     }
                                 </Pie>
                             </PieChart>
                         </Grid>
+                    </Grid>
+                    <Grid item>
+                        
                     </Grid>
                 </Grid>
             </div>
