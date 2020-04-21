@@ -89,7 +89,7 @@ const StatsTable = observer(class StatsTable extends React.Component {
 });
 
 export default function CreateTable(props){
-  console.log("in create table: " + props.cols);
+  // console.log("in create table: " + props.cols);
   if (props.cols !== undefined && props.cols.length > 0){
     return (
       <StatsTable rows={props.rows} cols={props.cols}/>
