@@ -72,6 +72,11 @@ const MainContent = observer(
       //make database req
       let response = [];
       console.log(this.state.searchValue);
+
+      if(this.state.searchValue === ""){
+        return;
+      }
+
       response = await Requests.search(this.state.searchValue);
 
       for (let i = 0; i < response.length; i++) {
