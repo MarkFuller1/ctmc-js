@@ -28,4 +28,9 @@ body {
   ::-webkit-scrollbar-thumb:hover {
     background: #5f3ce0; 
   }
+
+  .playerImage{
+    max-width: 200px;
+    border-radius: 100%;
+  }
   
