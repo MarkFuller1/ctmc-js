@@ -76,7 +76,9 @@ const PlayerPage = observer(
       console.log(this.state.imageURL === undefined);
 
       console.log("2");
-      return <img src={this.state.imageURL} alt="img" className="playerImage" />;
+      return (
+        <img src={this.state.imageURL} alt="img" className="playerImage" />
+      );
     };
 
     handleChange = (event, val) => {
@@ -160,10 +162,26 @@ const PlayerPage = observer(
       );
     }
 
+    clean(obj) {
+      for (var propName in obj) {
+        if (obj[propName] === null || obj[propName] === undefined) {
+          delete obj[propName];
+        }
+      }
+      return obj
+    }
+
     async componentDidMount() {
       const genResponse = await Request.getGeneralData(
         this.props.match.params.playerid
       );
+
+      let genResponseFiltered = genResponse.map((e) => {
+        return this.clean(e);
+      });
+
+      console.log(genResponseFiltered);
+
       const imageURLResponse = await Request.getPlayerImage(
         this.props.match.params.playerid
       );
@@ -175,8 +193,8 @@ const PlayerPage = observer(
         this.setState({ imageURL: imageURLResponse[0].url });
       }
       this.setState({
-        generalData: genResponse,
-        generalCols: Object.keys(genResponse[0]),
+        generalData: genResponseFiltered,
+        generalCols: Object.keys(genResponseFiltered[0]),
       });
       this.setState({
         name: genResponse[0].nameFirst + " " + genResponse[0].nameLast,
