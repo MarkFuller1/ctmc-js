@@ -72,16 +72,11 @@ const PlayerPage = observer(
     };
 
     renderImage = () => {
-      let defaultImage =
-        "https://pecb.com/conferences/wp-content/uploads/2017/10/no-profile-picture.jpg";
+      console.log("the player image is <" + this.state.imageURL + ">");
+      console.log(this.state.imageURL === undefined);
 
-        console.log("the player image is " + this.state.imageURL);
-
-      if (this.state.imageUrl === undefined) {
-        return <img src={defaultImage} alt="img" className="playerImage"  />;
-      } else {
-        return <img src={this.state.imageURL} alt="img" />;
-      }
+      console.log("2");
+      return <img src={this.state.imageURL} alt="img" className="playerImage" />;
     };
 
     handleChange = (event, val) => {
